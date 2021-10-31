@@ -19,8 +19,76 @@ void Selection(int size, int arr[]) {
             }
         }
     }
+
+}
+
+void bubbleSort(int size, int arr[]) {
+    int temp;
     for (int i = 0; i < size; i++) {
-        printf("%i ", arr[i]);
+        for (int j = 0; j < size - 1; j++) {
+            if (arr[j] > arr[j+1]) {
+                temp = arr[j];
+                arr[j] = arr[j+1];
+                arr[j+1] = temp;
+            }
+        }
+
+    }
+    for (int i = 0; i < size; i++) {
+        printf ("%i ", arr[i]);
+    }
+    printf("\n");
+}
+void merge(int arr[], int left, int endOfFirstArray, int right) {
+    int size1 = endOfFirstArray - left + 1;
+    int size2 = right - endOfFirstArray;
+
+    int LeftArr[size1];
+    int RightArr[size2];
+
+    for (int i = 0; i < size1; i++) {
+        LeftArr[i] = arr[left + i];
+    }
+
+
+    for (int i = 0; i < size2; i++) {
+        RightArr[i] = arr[endOfFirstArray + 1 + i];
+    }
+
+    int firstOfFirst = 0;
+    int firstOfSecond = 0;
+    int x = left;
+    while (firstOfFirst < size1 && firstOfSecond < size2) {
+        if (LeftArr[firstOfFirst] <= RightArr[firstOfSecond]) {
+            arr[x] = LeftArr[firstOfFirst];
+            firstOfFirst++;
+        }
+        else {
+            arr[x] = RightArr[firstOfSecond];
+            firstOfSecond++;
+        }
+        x++;
+    }
+
+    while (firstOfFirst < size1) {
+        arr[x] = LeftArr[firstOfFirst];
+        firstOfFirst++;
+        x++;
+    }
+
+    while (firstOfSecond < size2) {
+        arr[x] = RightArr[firstOfSecond];
+        firstOfSecond++;
+        x++;
+    }
+}
+
+void mergeSort(int right, int left, int arr[]) {
+    if (left < right) {
+        int endOfFirstArray = left + (right - left) / 2;
+        mergeSort(endOfFirstArray, left, arr);
+        mergeSort(right, endOfFirstArray + 1, arr);
+        merge(arr, left, endOfFirstArray, right);
     }
 }
 
@@ -47,12 +115,22 @@ int main(void) {
     int answ;
     int x = 1;
     while (x == 1) {
-        answ = get_int("Do you want to use selection sort or insertion sort? (1 or 2) ");
+        answ = get_int("Do you want to use selection sort, insertion sort, bubble sort, or merge sort? (1, 2, 3, 4, or 5) ");
         if (answ == 1) {
             Selection(size, arr);
         }
         else if (answ == 2) {
             Insertion(size, arr);
+        }
+        else if (answ == 3) {
+            bubbleSort(size, arr);
+        }
+        else if (answ == 4) {
+            mergeSort(size-1, 0, arr);
+            for (int i = 0; i < size; i++) {
+                printf("%i ", arr[i]);
+            }
+            printf("\n");
         }
         else {
             x = 0;
