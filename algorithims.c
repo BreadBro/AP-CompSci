@@ -39,7 +39,7 @@ void bubbleSort(int size, int arr[]) {
     }
     printf("\n");
 }
-void merge(int arr[], int left, int endOfFirstArray, int right) {
+void merge(int arr[], int endOfFirstArray, int left, int right) {
     int size1 = endOfFirstArray - left + 1;
     int size2 = right - endOfFirstArray;
 
@@ -88,7 +88,7 @@ void mergeSort(int right, int left, int arr[]) {
         int endOfFirstArray = left + (right - left) / 2;
         mergeSort(endOfFirstArray, left, arr);
         mergeSort(right, endOfFirstArray + 1, arr);
-        merge(arr, left, endOfFirstArray, right);
+        merge(arr, endOfFirstArray, left, right);
     }
 }
 
