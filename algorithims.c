@@ -19,7 +19,6 @@ void Selection(int size, int arr[]) {
             }
         }
     }
-
 }
 
 void bubbleSort(int size, int arr[]) {
@@ -40,6 +39,7 @@ void bubbleSort(int size, int arr[]) {
     printf("\n");
 }
 void merge(int arr[], int endOfFirstArray, int left, int right) {
+    //with help of https://www.geeksforgeeks.org/merge-sort/
     int size1 = endOfFirstArray - left + 1;
     int size2 = right - endOfFirstArray;
 
@@ -49,7 +49,6 @@ void merge(int arr[], int endOfFirstArray, int left, int right) {
     for (int i = 0; i < size1; i++) {
         LeftArr[i] = arr[left + i];
     }
-
 
     for (int i = 0; i < size2; i++) {
         RightArr[i] = arr[endOfFirstArray + 1 + i];
