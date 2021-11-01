@@ -39,7 +39,7 @@ void bubbleSort(int size, int arr[]) {
     printf("\n");
 }
 void merge(int arr[], int endOfFirstArray, int left, int right) {
-    //with help of https://www.geeksforgeeks.org/merge-sort/
+    //with help of geeksforgeeks
     int size1 = endOfFirstArray - left + 1;
     int size2 = right - endOfFirstArray;
 
