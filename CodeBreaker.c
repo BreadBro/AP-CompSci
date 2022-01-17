@@ -47,7 +47,7 @@ int main(void) {
                 }
             }
         }
-        for (int b = 0; b < 265; b++) {
+        for (int b = 0; b < 26; b++) {
             printf("%c: %.2f%%\n", toupper(LETTERS[b]), ((float)values[b]/(letterCount-1)) * 100);
         }
     }
