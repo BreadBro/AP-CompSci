@@ -5,10 +5,10 @@ try:
     file = open("insurance_data.csv")
 except Exception:
     print("Waaah")
-print(type(file))
+#print(type(file))
 insuranceFile = csv.reader(file)
 header = next(insuranceFile)
-print(header)
+#print(header)
 insuranceData = []
 # 0 - age, 1 - sex, 2 - bmi, 3 - children, 4 - smoker
 for i in insuranceFile:
@@ -23,7 +23,7 @@ for i in insuranceFile:
     cost = 250 * int(i[0]) - 128 * int(i[1]) + 370 * float(i[2]) + 425 * int(i[3]) + 24000 * int(i[4]) - 12500
     i.append(round(cost, 2))
     insuranceData.append(i)
-    print(i)
+    #print(i)
 # cost = 250*age - 128 * sex + 370 * bmi + 425 * num + 24000 * smoker - 12500
 
 nwAVG = 0
@@ -36,10 +36,10 @@ for i in insuranceData:
 print("NW average: %.2f" %(nwAVG/count))
 file.close()
 # Can't edit files on school laptop with vsc
-#fileName = "insurance_data_edited.csv"
-#fields = ["age", "sex", "bmi", "children", "smoker", "region", "charges", "total"]
-#with open(fileName, "w") as csvfile:
-#    csvwriter = csv.writer(csvfile)
-#    csvwriter.writerow(fields)
-#    for i in range(0, len(insuranceData)):
-#        csvwriter.writerow(insuranceData[i])
+fileName = "insurance_data_edited.csv"
+fields = ["age", "sex", "bmi", "children", "smoker", "region", "charges", "total"]
+with open(fileName, "w", newline = "") as csvfile:
+    csvwriter = csv.writer(csvfile)
+    csvwriter.writerow(fields)
+    for i in range(0, len(insuranceData)):
+        csvwriter.writerow(insuranceData[i])
