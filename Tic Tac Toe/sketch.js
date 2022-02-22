@@ -1,8 +1,3 @@
-// Daniel Shiffman
-// https://thecodingtrain.com/CodingChallenges/149-tic-tac-toe.html
-// https://youtu.be/GTWrWM1UsnA
-// https://editor.p5js.org/codingtrain/sketches/5JngATm3c
-
 let board = [
   ['', '', ''],
   ['', '', ''],
@@ -69,10 +64,6 @@ function nextTurn() {
   board[i][j] = players[currentPlayer];
   currentPlayer = (currentPlayer + 1) % players.length;
 }
-
-// function mousePressed() {
-//   nextTurn();
-// }
 
 function draw() {
   background(255);
